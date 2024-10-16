@@ -166,8 +166,10 @@ interface SecretSyncs {
     >
   >;
 
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "RPaaS can return both async and sync responses."
+  #suppress "deprecated" "RPaaS can return both async and sync responses."
   @doc("Deletes a SecretSync instance.")
-  delete is ArmResourceDeleteWithoutOkAsync<SecretSync>;
+  delete is ArmResourceDeleteAsync<SecretSync>;
 
   @doc("Lists the SecretSync instances within a resource group.")
   listByResourceGroup is ArmResourceListByParent<SecretSync>;

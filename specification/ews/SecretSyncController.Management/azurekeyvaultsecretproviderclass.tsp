@@ -64,8 +64,10 @@ interface AzureKeyVaultSecretProviderClasses {
     >
   >;
 
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "RPaaS can return both async and sync responses."
+  #suppress "deprecated" "RPaaS can return both async and sync responses."
   @doc("Deletes an AzureKeyVaultSecretProviderClass instance.")
-  delete is ArmResourceDeleteWithoutOkAsync<AzureKeyVaultSecretProviderClass>;
+  delete is ArmResourceDeleteAsync<AzureKeyVaultSecretProviderClass>;
 
   @doc("Lists the AzureKeyVaultSecretProviderClass instances within a resource group.")
   listByResourceGroup is ArmResourceListByParent<AzureKeyVaultSecretProviderClass>;
